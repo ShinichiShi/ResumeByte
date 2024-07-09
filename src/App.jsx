@@ -5,16 +5,29 @@ import Resume from './components/Resume Display/Resume';
 import Input from './components/Form Filling/Input';
 import Section from './components/Form Filling/Section';
 import SectionArray from './components/Form Filling/SectionArray';
+import AddForm from './components/Form Filling/AddForm';
+import uniqid from 'uniqid';
+import Buttons from './Buttons';
+const {Save, Add} = Buttons
 function App() {
   const [personalDetails, setPersonalDetails] = useState(
     TemplateData.personalDetails
   );
   const [sections, setSections] = useState(TemplateData.sections);
   const [activeSection, setActiveSection] = useState('');
+  const [addSection, setAddSection] = useState(false);
+  const [formData, setFormData] = useState({
+    degree: '',
+    name: '',
+    location: '',
+    startDate: '',
+    endDate: '',
+  });
 
   const handleClick = (section) => {
     setActiveSection((prevSection) => (prevSection === section ? '' : section));
   };
+
   const handlePersonalDetailsChange = (e) => {
     const { name, value } = e.target;
     setPersonalDetails((prevDetails) => ({
@@ -22,6 +35,7 @@ function App() {
       [name]: value,
     }));
   };
+
   const handleClear = () => {
     setPersonalDetails({
       name: '',
@@ -33,10 +47,13 @@ function App() {
       educations: [],
       experience: [],
     });
+    setAddSection(false)
   };
+
   const handleLoad = () => {
     setPersonalDetails(TemplateData.personalDetails);
     setSections(TemplateData.sections);
+    setAddSection(false)
   };
 
   const handleSectionsChange = (e, sectionType, id) => {
@@ -56,6 +73,43 @@ function App() {
       [sectionType]: prevSections[sectionType].map((section) =>
         section.id === id ? { ...section, [name]: value } : section
       ),
+    }));
+  };
+
+
+  const handleAddNewSection = (newSection,type) => {
+    setSections((prevSections) => ({
+      ...prevSections,
+      [type]: [
+        ...prevSections[type],
+        { ...newSection, id: uniqid() },
+      ],
+    }));
+  };
+
+  const handleChangeFormData = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmitNewSection = (e,type) => {
+    e.preventDefault();
+    // handleAddEducation(formData);
+    handleAddNewSection(formData,type)
+    setFormData({
+      degree: '',
+      name: '',
+      location: '',
+      startDate: '',
+      endDate: '',
+    });
+    setAddSection(false);
+  };
+
+  const handleDeleteSection = (type, id) => {
+    setSections((prevSections) => ({
+      ...prevSections,
+      [type]: prevSections[type].filter((section) => section.id !== id),
     }));
   };
 
@@ -102,19 +156,36 @@ function App() {
               name="address"
               handleChange={handlePersonalDetailsChange}
             />
+            <Save onClick={() => handleClick('Personal Details')}/>
           </Section>
-          {/* {1)issue with resume font fitting 2)fix the buttons clear load 3)adding new education and experience */}
-
           <Section
             name="Education"
             isActive={activeSection === 'Education'}
             onClick={() => handleClick('Education')}
           >
-            <SectionArray
-              sections={sections.educations}
-              sectionType="educations"
-              handleSectionsChange={handleSectionsChange}
-            />
+            {!addSection && (
+              <>
+                <SectionArray
+                  sections={sections.educations}
+                  sectionType="educations"
+                  handleSectionsChange={handleSectionsChange}
+                  handleDeleteSection={handleDeleteSection}
+                />
+                <Add onClick={() => setAddSection(true)} />
+              </>
+            )}
+            {addSection && (
+              <div>
+                <AddForm
+                  handleSubmit={(e)=>handleSubmitNewSection(e,'educations')}
+                  handleCancel = {()=>setAddSection(false)}
+                  sectionType="educations"
+                  formData={formData}
+                  handleChange={handleChangeFormData}
+                  operation='add'
+                />
+              </div>
+            )}
           </Section>
 
           <Section
@@ -122,11 +193,30 @@ function App() {
             isActive={activeSection === 'Work Experience'}
             onClick={() => handleClick('Work Experience')}
           >
-            <SectionArray
-              sections={sections.experience}
-              sectionType="experience"
-              handleSectionsChange={handleSectionsChange}
-            />
+            {!addSection && (
+              <>
+                <SectionArray
+                  sections={sections.experience}
+                  sectionType="experience"
+                  handleSectionsChange={handleSectionsChange}
+                  handleDeleteSection={handleDeleteSection}
+                />
+                <Add onClick={() => setAddSection(true)} />
+              </>  
+
+            )}
+            {addSection && (
+              <>
+                <AddForm
+                 handleSubmit={(e)=>handleSubmitNewSection(e,'experience')}
+                 handleCancel = {()=>setAddSection(false)}
+                 sectionType="experience"
+                 formData={formData}
+                 handleChangeFormData={handleChangeFormData}
+                 operation='add'
+                />
+              </>
+            )}
           </Section>
         </div>
         <div>

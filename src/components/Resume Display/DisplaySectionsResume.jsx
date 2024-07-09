@@ -2,8 +2,10 @@ import React from 'react';
 
 function DisplaySectionsResume({ sections, type }) {
   return (
-    <div className="mt-4 p-4 bg-gray-100  flex-shrink-0">
-      {sections.length!==0&&<h2 className="text-2xl font-bold mb-2">{type}</h2>}
+    <div className="mt-4 p-4 bg-gray-100">
+      {sections.length !== 0 && (
+        <h2 className="text-2xl font-bold mb-2">{type}</h2>
+      )}
       {sections.map((section) => (
         <div
           key={section.id}

@@ -15,11 +15,7 @@ function Section({ name, isActive, onClick, children }) {
       {isActive && (
         <div className="mt-4">
           <Details>{children}</Details>
-          {name === 'Personal Details' && (
-            <button className="bg-red-600" onClick={onClick}>
-              Save
-            </button>
-          )}
+          
         </div>
       )}
     </div>

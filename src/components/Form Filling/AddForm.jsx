@@ -1,8 +1,16 @@
 import Input from './Input';
+import Buttons from '../../Buttons'
+const {Save, Delete, Cancel} = Buttons
 export default function AddForm({
   section,
   handleSectionsChange,
   sectionType,
+  handleSubmit,
+  handleChangeFormData,
+  formData,
+  operation,
+  handleCancel,
+  handleDeleteSection,
 }) {
   const fields =
     sectionType === 'educations'
@@ -42,12 +50,29 @@ export default function AddForm({
           key={field}
           name={field}
           placeholder={displayFields[field][0]}
-          value={section[field]}
+          value={operation !== 'add' ? section[field] : formData.field}
           type={displayFields[field][1]}
           displayName={displayFields[field][0]}
-          handleChange={(e) => handleSectionsChange(e, sectionType, section.id)}
+          handleChange={
+            operation !== 'add'
+              ? (e) => handleSectionsChange(e, sectionType, section.id)
+              : handleChangeFormData
+          }
         />
       ))}
+      {
+        operation!=='add' && (
+          <Delete onClick={()=>handleDeleteSection(sectionType,section.id)}/>
+        )
+      }
+      {operation === 'add' && (
+        <>
+        <div className='w-full flex items-center justify-between'>
+        <Cancel onClick={handleCancel} />
+        <Save onClick={handleSubmit}/>
+        </div>
+      </>
+      )}
     </>
   );
 }

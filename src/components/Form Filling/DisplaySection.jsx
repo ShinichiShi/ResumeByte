@@ -1,6 +1,5 @@
 import React from 'react';
 import Details from './Details';
-import Input from './Input';
 import AddForm from './AddForm';
 function DisplaySection({
   section,
@@ -8,6 +7,7 @@ function DisplaySection({
   onClick,
   handleSectionsChange,
   sectionType,
+  handleDeleteSection,
 }) {
   return (
     <div className="p-[2vh] flex items-center flex-col justify-around w-[36vw] cursor-pointer">
@@ -17,7 +17,7 @@ function DisplaySection({
       >
         <div className="text-2xl">{section.name}</div>
         <div>
-          <i className={`fa-solid fa-caret-${isExpanded ? 'up' : 'down'}`}></i>
+          <i className={`fa-solid fa-eye${isExpanded ? '' : '-slash'} `}></i>
         </div>
       </div>
 
@@ -28,11 +28,9 @@ function DisplaySection({
               section={section}
               handleSectionsChange={handleSectionsChange}
               sectionType={sectionType}
+              handleDeleteSection={handleDeleteSection}
             />
           </Details>
-          <button className="bg-red-600" onClick={onClick}>
-            Save
-          </button>
         </div>
       )}
     </div>

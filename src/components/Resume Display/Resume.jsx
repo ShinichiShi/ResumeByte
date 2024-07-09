@@ -4,7 +4,7 @@ import DisplaySectionsResume from './DisplaySectionsResume';
 
 function Resume({ personalDetails, sections }) {
   return (
-    <div className="p-[4vh] box-border flex items-center justify-center flex-shrink-0 ">
+    <div className="p-[4vh] box-border flex items-center justify-center overflow-auto ">
       <div className="h-[100vh] w-[90vh] bg-slate-50">
         <Personal personalDetails={personalDetails} />
         <DisplaySectionsResume

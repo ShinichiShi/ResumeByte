@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DisplaySection from './DisplaySection';
 
-function SectionArray({ sections, sectionType, handleSectionsChange }) {
+function SectionArray({ sections, sectionType, handleSectionsChange, handleDeleteSection }) {
   const [expandedId, setExpandedId] = useState(null);
 
   const handleClick = (id) => {
@@ -18,6 +18,7 @@ function SectionArray({ sections, sectionType, handleSectionsChange }) {
           onClick={() => handleClick(section.id)}
           handleSectionsChange={handleSectionsChange}
           sectionType={sectionType}
+          handleDeleteSection={handleDeleteSection}
         />
       ))}
     </div>

@@ -1,4 +1,4 @@
-function TemplateBar({handleLoad,handleClear}) {
+function TemplateBar({ handleLoad, handleClear }) {
   return (
     <>
       <div className="flex m-[5vh] h-[8vh] min-w-full bg-slate-300 rounded-[var(--radius)] items-center justify-center gap-[1vh]">

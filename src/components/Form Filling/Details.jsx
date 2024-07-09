@@ -1,5 +1,3 @@
-import { Children } from 'react';
-
 function Details({ children }) {
   return (
     <>
