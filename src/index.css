@@ -10,11 +10,23 @@ body{
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@font-face {
+  font-family: 'NotoSans';
+  src: url(./assets/fonts/NotoSans-Light.ttf);
+}
+@font-face {
+  font-family: 'NotoSans-Bold';
+  src: url(./assets/fonts/NotoSans-Bold.ttf);
+}
+@font-face {
+  font-family: 'NotoSans-SemiBold';
+  src: url(./assets/fonts/NotoSans-SemiBold.ttf);
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'NotoSans';
 }
 
 :root {

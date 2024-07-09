@@ -1,4 +1,4 @@
-import Details from './components/Details';
+import Details from './Details';
 
 function Section({ name, isActive, onClick, children }) {
   return (
@@ -15,9 +15,11 @@ function Section({ name, isActive, onClick, children }) {
       {isActive && (
         <div className="mt-4">
           <Details>{children}</Details>
-          <button className="bg-red-600" onClick={onClick}>
-            Save
-          </button>
+          {name === 'Personal Details' && (
+            <button className="bg-red-600" onClick={onClick}>
+              Save
+            </button>
+          )}
         </div>
       )}
     </div>
