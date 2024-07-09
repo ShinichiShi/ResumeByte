@@ -8,7 +8,9 @@ import SectionArray from './components/Form Filling/SectionArray';
 import AddForm from './components/Form Filling/AddForm';
 import uniqid from 'uniqid';
 import Buttons from './Buttons';
-const {Save, Add} = Buttons
+import generatePDF from './PdfGenerator';
+
+const { Save, Add } = Buttons;
 function App() {
   const [personalDetails, setPersonalDetails] = useState(
     TemplateData.personalDetails
@@ -47,13 +49,13 @@ function App() {
       educations: [],
       experience: [],
     });
-    setAddSection(false)
+    setAddSection(false);
   };
 
   const handleLoad = () => {
     setPersonalDetails(TemplateData.personalDetails);
     setSections(TemplateData.sections);
-    setAddSection(false)
+    setAddSection(false);
   };
 
   const handleSectionsChange = (e, sectionType, id) => {
@@ -76,14 +78,10 @@ function App() {
     }));
   };
 
-
-  const handleAddNewSection = (newSection,type) => {
+  const handleAddNewSection = (newSection, type) => {
     setSections((prevSections) => ({
       ...prevSections,
-      [type]: [
-        ...prevSections[type],
-        { ...newSection, id: uniqid() },
-      ],
+      [type]: [...prevSections[type], { ...newSection, id: uniqid() }],
     }));
   };
 
@@ -92,10 +90,10 @@ function App() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmitNewSection = (e,type) => {
+  const handleSubmitNewSection = (e, type) => {
     e.preventDefault();
     // handleAddEducation(formData);
-    handleAddNewSection(formData,type)
+    handleAddNewSection(formData, type);
     setFormData({
       degree: '',
       name: '',
@@ -156,7 +154,7 @@ function App() {
               name="address"
               handleChange={handlePersonalDetailsChange}
             />
-            <Save onClick={() => handleClick('Personal Details')}/>
+            <Save onClick={() => handleClick('Personal Details')} />
           </Section>
           <Section
             name="Education"
@@ -177,12 +175,12 @@ function App() {
             {addSection && (
               <div>
                 <AddForm
-                  handleSubmit={(e)=>handleSubmitNewSection(e,'educations')}
-                  handleCancel = {()=>setAddSection(false)}
+                  handleSubmit={(e) => handleSubmitNewSection(e, 'educations')}
+                  handleCancel={() => setAddSection(false)}
                   sectionType="educations"
                   formData={formData}
                   handleChange={handleChangeFormData}
-                  operation='add'
+                  operation="add"
                 />
               </div>
             )}
@@ -202,22 +200,27 @@ function App() {
                   handleDeleteSection={handleDeleteSection}
                 />
                 <Add onClick={() => setAddSection(true)} />
-              </>  
-
+              </>
             )}
             {addSection && (
               <>
                 <AddForm
-                 handleSubmit={(e)=>handleSubmitNewSection(e,'experience')}
-                 handleCancel = {()=>setAddSection(false)}
-                 sectionType="experience"
-                 formData={formData}
-                 handleChangeFormData={handleChangeFormData}
-                 operation='add'
+                  handleSubmit={(e) => handleSubmitNewSection(e, 'experience')}
+                  handleCancel={() => setAddSection(false)}
+                  sectionType="experience"
+                  formData={formData}
+                  handleChangeFormData={handleChangeFormData}
+                  operation="add"
                 />
               </>
             )}
           </Section>
+          <button
+            onClick={generatePDF}
+            className="bg-blue-500 flex items-center justify-center gap-3 text-white rounded-lg px-4 py-2 hover:bg-blue-600 transition-colors duration-300"
+          >
+           <i className="fa-sharp fa-regular fa-file-pdf text-xl" />Download PDF
+          </button>
         </div>
         <div>
           <Resume personalDetails={personalDetails} sections={sections} />
