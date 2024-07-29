@@ -1,4 +1,7 @@
 import React from 'react';
+import { IoMdMail } from "react-icons/io";
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
 const Personal = ({ personalDetails }) => {
   const { name, email, phoneNumber, address } = personalDetails;
   return (
@@ -9,19 +12,19 @@ const Personal = ({ personalDetails }) => {
       <div className="flex items-center justify-around flex-row gap-10  ">
         {email !== '' && (
           <div className="flex items-center justify-center gap-2">
-            <i className="fa-solid fa-envelope" />
+            <IoMdMail />
             <p>{email}</p>
           </div>
         )}
         {phoneNumber !== '' && (
           <div className="flex items-center justify-center gap-2">
-            <i className="fa-solid fa-phone" />
+            <FaPhoneAlt/>
             <p>{phoneNumber}</p>
           </div>
         )}
         {address !== '' && (
           <div className="flex items-center justify-center gap-2">
-            <i className="fa-solid fa-location-dot" />
+            <FaLocationDot/>
             <p>{address}</p>
           </div>
         )}
