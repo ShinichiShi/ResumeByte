@@ -1,6 +1,6 @@
 import Input from './Input';
-import Buttons from '../../Buttons'
-const {Save, Delete, Cancel} = Buttons
+import Buttons from '../Buttons';
+const { Save, Delete, Cancel } = Buttons;
 export default function AddForm({
   section,
   handleSectionsChange,
@@ -60,18 +60,16 @@ export default function AddForm({
           }
         />
       ))}
-      {
-        operation!=='add' && (
-          <Delete onClick={()=>handleDeleteSection(sectionType,section.id)}/>
-        )
-      }
+      {operation !== 'add' && (
+        <Delete onClick={() => handleDeleteSection(sectionType, section.id)} />
+      )}
       {operation === 'add' && (
         <>
-        <div className='w-full flex items-center justify-between'>
-        <Cancel onClick={handleCancel} />
-        <Save onClick={handleSubmit}/>
-        </div>
-      </>
+          <div className="w-full flex items-center justify-between">
+            <Cancel onClick={handleCancel} />
+            <Save onClick={handleSubmit} />
+          </div>
+        </>
       )}
     </>
   );

@@ -1,4 +1,5 @@
 import Details from './Details';
+import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 
 function Section({ name, isActive, onClick, children }) {
   return (
@@ -9,7 +10,7 @@ function Section({ name, isActive, onClick, children }) {
       >
         <div className="text-2xl">{name}</div>
         <div>
-          <i className={`fa-solid fa-caret-${isActive ? 'up' : 'down'}`}></i>
+          {isActive?<FaCaretUp className='h-6'/>:<FaCaretDown className='h-6'/>}
         </div>
       </div>
       {isActive && (

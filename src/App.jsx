@@ -7,7 +7,8 @@ import Section from './components/Form Filling/Section';
 import SectionArray from './components/Form Filling/SectionArray';
 import AddForm from './components/Form Filling/AddForm';
 import uniqid from 'uniqid';
-import Buttons from './Buttons';
+import { FaDownload } from "react-icons/fa";
+import Buttons from './components/Buttons';
 import generatePDF from './PdfGenerator';
 
 const { Save, Add } = Buttons;
@@ -78,21 +79,13 @@ function App() {
     }));
   };
 
-  const handleAddNewSection = (newSection, type) => {
-    setSections((prevSections) => ({
-      ...prevSections,
-      [type]: [...prevSections[type], { ...newSection, id: uniqid() }],
-    }));
-  };
-
   const handleChangeFormData = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
+  
   const handleSubmitNewSection = (e, type) => {
     e.preventDefault();
-    // handleAddEducation(formData);
     handleAddNewSection(formData, type);
     setFormData({
       degree: '',
@@ -104,6 +97,13 @@ function App() {
     setAddSection(false);
   };
 
+  const handleAddNewSection = (newSection, type) => {
+    setSections((prevSections) => ({
+      ...prevSections,
+      [type]: [...prevSections[type], { ...newSection, id: uniqid() }],
+    }));
+  };
+  
   const handleDeleteSection = (type, id) => {
     setSections((prevSections) => ({
       ...prevSections,
@@ -115,10 +115,9 @@ function App() {
     <>
       <div className="p-10 flex items-center gap-[4vh] justify-around bg-slate-800">
         <div className="flex items-center justify-center flex-col min-w-[40vw] gap-[2vh] self-start">
+          {/* for load and delete template */}
           <TemplateBar handleClear={handleClear} handleLoad={handleLoad} />
-          {}
-          <Section
-            name="Personal Details"
+          <Section name="Personal Details"
             isActive={activeSection === 'Personal Details'}
             onClick={() => handleClick('Personal Details')}
           >
@@ -156,8 +155,7 @@ function App() {
             />
             <Save onClick={() => handleClick('Personal Details')} />
           </Section>
-          <Section
-            name="Education"
+          <Section name="Education"
             isActive={activeSection === 'Education'}
             onClick={() => handleClick('Education')}
           >
@@ -179,15 +177,14 @@ function App() {
                   handleCancel={() => setAddSection(false)}
                   sectionType="educations"
                   formData={formData}
-                  handleChange={handleChangeFormData}
+                  handleChangeFormData={handleChangeFormData}
                   operation="add"
                 />
               </div>
             )}
           </Section>
 
-          <Section
-            name="Work Experience"
+          <Section name="Work Experience"
             isActive={activeSection === 'Work Experience'}
             onClick={() => handleClick('Work Experience')}
           >
@@ -219,7 +216,8 @@ function App() {
             onClick={generatePDF}
             className="bg-blue-500 flex items-center justify-center gap-3 text-white rounded-lg px-4 py-2 hover:bg-blue-600 transition-colors duration-300"
           >
-           <i className="fa-sharp fa-regular fa-file-pdf text-xl" />Download PDF
+            <FaDownload />
+            Download PDF
           </button>
         </div>
         <div>

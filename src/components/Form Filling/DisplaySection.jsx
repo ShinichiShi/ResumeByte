@@ -1,6 +1,8 @@
 import React from 'react';
 import Details from './Details';
 import AddForm from './AddForm';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+
 function DisplaySection({
   section,
   isExpanded,
@@ -17,7 +19,7 @@ function DisplaySection({
       >
         <div className="text-2xl">{section.name}</div>
         <div>
-          <i className={`fa-solid fa-eye${isExpanded ? '' : '-slash'} `}></i>
+          {isExpanded?<FaEyeSlash className='w-6 h-6'/>:<FaEye className='w-6 h-6'/>}
         </div>
       </div>
 

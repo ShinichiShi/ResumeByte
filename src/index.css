@@ -22,15 +22,6 @@ body{
   font-family: 'NotoSans-SemiBold';
   src: url(./assets/fonts/NotoSans-SemiBold.ttf);
 }
-@keyframes rotate360 {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-  
-}
 
 .rotate-360 {
   transition: transform 0.7s ease-in-out;
@@ -38,6 +29,15 @@ body{
 
 .rotate-360:hover {
   animation: rotate360 0.7s ease-in-out;
+}
+
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 * {
   margin: 0;

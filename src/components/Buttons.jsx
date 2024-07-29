@@ -1,3 +1,5 @@
+import { FaCirclePlus } from "react-icons/fa6";
+
 function Save({ onClick }) {
   return (
     <>
@@ -35,7 +37,7 @@ function Add({onClick}){
     <>
      <div className="flex items-center justify-center">
         <button className="flex items-center" onClick={onClick}>
-        <i className ="fa-solid fa-circle-plus fa-2x text-blue-950 rotate-360"></i>
+        <FaCirclePlus className="text-blue-950 rotate-360 w-7 h-7" />
         </button>
       </div>
     </>
