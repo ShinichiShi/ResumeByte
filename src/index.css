@@ -50,3 +50,13 @@ body{
   --font-size: 1.2rem;
   --radius: 2vh;
 }
+
+/* Custom styles for informal */
+.informal-section {
+  @apply mb-4 p-4 bg-white rounded-lg shadow-md flex items-center justify-between flex-row;
+}
+
+/* Custom styles for formal */
+.formal-section {
+  @apply p-1 rounded-lg flex items-center justify-between flex-row;
+}

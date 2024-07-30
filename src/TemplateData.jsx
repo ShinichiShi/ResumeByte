@@ -11,17 +11,17 @@ const TemplateData = {
       {
         name: 'DSCE',
         degree: 'CSE',
-        location: 'India',
-        startDate: '09/20/2023',
-        endDate: '09/21/2027',
+        percentage: '98%',
+        startYear: '2023',
+        endYear: '2027',
         id: uniqid(),
       },
       {
         degree: 'Aiml',
         name: 'IIT',
-        location: 'India',
-        startDate: '09/20/2020',
-        endDate: '09/21/2022',
+        percentage: '96%',
+        startYear: '2020',
+        endYear: '2022',
         id: uniqid(),
       },
     ],
@@ -32,8 +32,8 @@ const TemplateData = {
         location: 'New York City, US',
         description:
           'Designed and prototyped user interface patterns for various clients in various industries, ranging from self-service apps within the telecommunications-sector to mobile games for IOS and Android',
-        startDate: '08/2020',
-        endDate: 'present',
+        startYear: '2020',
+        endYear: 'present',
         id: uniqid(),
       },
       {
@@ -42,11 +42,60 @@ const TemplateData = {
         location: 'New York City, US',
         description:
           'Designed and prototyped user interface patterns for various clients in various industries, ranging from self-service apps within the telecommunications-sector to mobile games for IOS and Android',
-        startDate: '08/2020',
-        endDate: 'present',
+        startYear: '2020',
+        endYear: 'present',
         id: uniqid(),
       },
     ],
+    projects:[
+      {
+        name: 'iot',
+        desc: 'df desc',
+        id: uniqid(),
+      },
+      {
+        name: 'iot2',
+        desc: 'ds desc',
+        id: uniqid(),
+      },
+    ],
+    achievements:[
+      {
+        name: 'iot',
+        desc: 'achievement desc',
+        id: uniqid(),
+      },
+      {
+        name: 'iot2',
+        desc: 'achievement desc',
+        id: uniqid(),
+      },
+    ],
+    certification:[
+      {
+        name: 'iot',
+        desc: 'cert desc',
+        id: uniqid(),
+      },
+      {
+        name: 'iot2',
+        desc: 'cert desc',
+        id: uniqid(),
+      },
+    ],
+    misc:[
+      {
+        name: 'iot',
+        desc: 'misc desc',
+        id: uniqid(),
+      },
+      {
+        name: 'iot2',
+        desc: 'misc desc',
+        id: uniqid(),
+      },
+    ]
+
   },
 };
 export default TemplateData;

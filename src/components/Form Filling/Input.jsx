@@ -14,7 +14,6 @@ function Input({ placeholder, value, type, displayName, name, handleChange }) {
                 value={value}
                 placeholder={`Enter ${placeholder}`}
                 onChange={handleChange}
-                // {({value}==='')&& (placeholder={`Enter ${name}`})}
               />
             </div>
           </>
@@ -31,7 +30,6 @@ function Input({ placeholder, value, type, displayName, name, handleChange }) {
               value={value}
               placeholder={`Enter ${placeholder}`}
               onChange={handleChange}
-              // {({value}==='')&& (placeholder={`Enter ${name}`})}
             />
           </div>
         )}

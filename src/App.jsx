@@ -24,15 +24,19 @@ function App() {
   const [config, setConfig] = useState('content');
   const [style, setStyle] = useState('formal');
   const [formData, setFormData] = useState({
-    degree: '',
     name: '',
+    degree: '',
+    percentage: '',
+    startYear: '',
+    endYear: '',
+    name: '',
+    desc: '',
     location: '',
-    startDate: '',
-    endDate: '',
   });
 
   const handleClick = (section) => {
     setActiveSection((prevSection) => (prevSection === section ? '' : section));
+    setAddSection(false);
   };
 
   const handlePersonalDetailsChange = (e) => {
@@ -142,8 +146,7 @@ function App() {
           <>
             <div className="flex items-center justify-center flex-col min-w-[30vw] gap-[2vh] self-start">
               <TemplateBar handleClear={handleClear} handleLoad={handleLoad} />
-              <Section
-                name="Personal Details"
+              <Section name="Personal Details"
                 isActive={activeSection === 'Personal Details'}
                 onClick={() => handleClick('Personal Details')}
               >
@@ -181,8 +184,7 @@ function App() {
                 />
                 <Save onClick={() => handleClick('Personal Details')} />
               </Section>
-              <Section
-                name="Education"
+              <Section name="Education"
                 isActive={activeSection === 'Education'}
                 onClick={() => handleClick('Education')}
               >
@@ -212,8 +214,7 @@ function App() {
                   </div>
                 )}
               </Section>
-              <Section
-                name="Work Experience"
+              <Section name="Work Experience"
                 isActive={activeSection === 'Work Experience'}
                 onClick={() => handleClick('Work Experience')}
               >
@@ -239,6 +240,126 @@ function App() {
                       formData={formData}
                       handleChangeFormData={handleChangeFormData}
                       operation="add"
+                    />
+                  </>
+                )}
+              </Section>
+              <Section name='Projects' 
+                isActive={activeSection === 'Projects'}
+                onClick={()=>handleClick('Projects')}
+              >
+                {!addSection&&(
+                  <>
+                  <SectionArray
+                    sections={sections.projects}
+                    sectionType='projects'
+                    handleSectionsChange={handleSectionsChange}
+                    handleDeleteSection={handleDeleteSection}
+                  />
+                  <Add onClick={()=>setAddSection(true)} />
+                  </>
+                )}
+                {addSection && (
+                  <>
+                    <AddForm 
+                    handleSubmit={(e)=>
+                      handleSubmitNewSection(e,'projects')
+                    }
+                    handleCancel={()=>setAddSection(false)}
+                    sectionType='projects'
+                    formdata={formData}
+                    handleChangeFormData={handleChangeFormData}
+                    operation='add'
+                    />
+                  </>
+                )}
+              </Section>
+              <Section name='Achievements' 
+                isActive={activeSection === 'Achievements'}
+                onClick={()=>handleClick('Achievements')}
+              >
+                {!addSection&&(
+                  <>
+                  <SectionArray
+                    sections={sections.achievements}
+                    sectionType='achievements'
+                    handleSectionsChange={handleSectionsChange}
+                    handleDeleteSection={handleDeleteSection}
+                  />
+                  <Add onClick={()=>setAddSection(true)} />
+                  </>
+                )}
+                {addSection && (
+                  <>
+                    <AddForm 
+                    handleSubmit={(e)=>
+                      handleSubmitNewSection(e,'achievements')
+                    }
+                    handleCancel={()=>setAddSection(false)}
+                    sectionType='achievements'
+                    formdata={formData}
+                    handleChangeFormData={handleChangeFormData}
+                    operation='add'
+                    />
+                  </>
+                )}
+              </Section>
+              <Section name='Certifications' 
+                isActive={activeSection === 'Certifications'}
+                onClick={()=>handleClick('Certifications')}
+              >
+                {!addSection&&(
+                  <>
+                  <SectionArray
+                    sections={sections.certification}
+                    sectionType='certifications'
+                    handleSectionsChange={handleSectionsChange}
+                    handleDeleteSection={handleDeleteSection}
+                  />
+                  <Add onClick={()=>setAddSection(true)} />
+                  </>
+                )}
+                {addSection && (
+                  <>
+                    <AddForm 
+                    handleSubmit={(e)=>
+                      handleSubmitNewSection(e,'certifications')
+                    }
+                    handleCancel={()=>setAddSection(false)}
+                    sectionType='certifications'
+                    formdata={formData}
+                    handleChangeFormData={handleChangeFormData}
+                    operation='add'
+                    />
+                  </>
+                )}
+              </Section>
+              <Section name='Miscellaneous' 
+                isActive={activeSection === 'Misc'}
+                onClick={()=>handleClick('Misc')}
+              >
+                {!addSection&&(
+                  <>
+                  <SectionArray
+                    sections={sections.misc}
+                    sectionType='misc'
+                    handleSectionsChange={handleSectionsChange}
+                    handleDeleteSection={handleDeleteSection}
+                  />
+                  <Add onClick={()=>setAddSection(true)} />
+                  </>
+                )}
+                {addSection && (
+                  <>
+                    <AddForm 
+                    handleSubmit={(e)=>
+                      handleSubmitNewSection(e,'misc')
+                    }
+                    handleCancel={()=>setAddSection(false)}
+                    sectionType='misc'
+                    formdata={formData}
+                    handleChangeFormData={handleChangeFormData}
+                    operation='add'
                     />
                   </>
                 )}
