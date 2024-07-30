@@ -1,5 +1,5 @@
 import Details from './Details';
-import { FaCaretDown, FaCaretUp } from "react-icons/fa";
+import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
 
 function Section({ name, isActive, onClick, children }) {
   return (
@@ -10,13 +10,16 @@ function Section({ name, isActive, onClick, children }) {
       >
         <div className="text-2xl">{name}</div>
         <div>
-          {isActive?<FaCaretUp className='h-6'/>:<FaCaretDown className='h-6'/>}
+          {isActive ? (
+            <FaCaretUp className="h-6" />
+          ) : (
+            <FaCaretDown className="h-6" />
+          )}
         </div>
       </div>
       {isActive && (
         <div className="mt-4 w-full">
           <Details>{children}</Details>
-          
         </div>
       )}
     </div>

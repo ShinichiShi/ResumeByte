@@ -6,19 +6,19 @@ import { FaLocationDot } from 'react-icons/fa6';
 const Personal = ({ personalDetails, style }) => {
   const { name, email, phoneNumber, address } = personalDetails;
 
-  const containerClasses = style === 'informal' 
-    ? 'bg-slate-400 h-[16vh] flex items-center justify-center flex-col gap-[2vh]'
-    : 'h-20 flex items-center justify-center flex-col gap-3';
+  const containerClasses =
+    style === 'informal'
+      ? 'bg-slate-400 h-20 flex items-center justify-center flex-col gap-3'
+      : 'h-20 flex items-center justify-center flex-col gap-3';
 
-  const nameClasses = style === 'informal' 
-    ? 'flex items-center justify-center text-5xl uppercase'
-    : 'flex items-center justify-center text-3xl uppercase';
+  const nameClasses =
+    style === 'informal'
+      ? 'flex items-center justify-center text-4xl uppercase'
+      : 'flex items-center justify-center text-3xl uppercase';
 
   return (
     <div className={containerClasses}>
-      {name !== '' && (
-        <div className={nameClasses}>{name}</div>
-      )}
+      {name !== '' && <div className={nameClasses}>{name}</div>}
       <div className="flex items-center justify-around flex-row gap-10">
         {email !== '' && (
           <div className="flex items-center justify-center gap-2">

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 function Input({ placeholder, value, type, displayName, name, handleChange }) {
   return (
     <>

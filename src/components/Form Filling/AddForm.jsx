@@ -48,24 +48,23 @@ export default function AddForm({
   };
   return (
     <>
-      {(sectionType === 'educations' ||
-        sectionType === 'experience') &&
-          fields.map((field) => (
-            <Input
-              key={field}
-              name={field}
-              placeholder={displayFields[field][0]}
-              value={operation !== 'add' ? section[field] :undefined}
-              // value={operation !== 'add' ? section[field] : formData.field}
-              type={displayFields[field][1]}
-              displayName={displayFields[field][0]}
-              handleChange={
-                operation !== 'add'
-                  ? (e) => handleSectionsChange(e, sectionType, section.id)
-                  : handleChangeFormData
-              }
-            />
-          ))}
+      {(sectionType === 'educations' || sectionType === 'experience') &&
+        fields.map((field) => (
+          <Input
+            key={field}
+            name={field}
+            placeholder={displayFields[field][0]}
+            value={operation !== 'add' ? section[field] : undefined}
+            // value={operation !== 'add' ? section[field] : formData.field}
+            type={displayFields[field][1]}
+            displayName={displayFields[field][0]}
+            handleChange={
+              operation !== 'add'
+                ? (e) => handleSectionsChange(e, sectionType, section.id)
+                : handleChangeFormData
+            }
+          />
+        ))}
       {sectionType !== 'educations' &&
         sectionType !== 'experience' &&
         miscFields.map((field) => (

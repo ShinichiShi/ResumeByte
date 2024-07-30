@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import DisplaySection from './DisplaySection';
 
-function SectionArray({ sections, sectionType, handleSectionsChange, handleDeleteSection }) {
+function SectionArray({
+  sections,
+  sectionType,
+  handleSectionsChange,
+  handleDeleteSection,
+}) {
   const [expandedId, setExpandedId] = useState(null);
 
   const handleClick = (id) => {
@@ -9,7 +14,7 @@ function SectionArray({ sections, sectionType, handleSectionsChange, handleDelet
   };
 
   return (
-    <div className='w-full'>
+    <div className="w-full">
       {sections.map((section) => (
         <DisplaySection
           key={section.id}
