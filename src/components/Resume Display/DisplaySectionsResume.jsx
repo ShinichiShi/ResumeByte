@@ -5,7 +5,7 @@ function DisplaySectionsResume({ sections, type, style, styling }) {
     style === 'informal' ? 'informal-section' : 'formal-section';
 
   const textStyle = {
-    color: styling.colors.text
+    color: styling.colors.text,
   };
 
   return (
@@ -108,13 +108,12 @@ function DisplaySectionsResume({ sections, type, style, styling }) {
                   className={`w-40 flex items-center justify-start text-base font-semibold ${styling.font}`}
                   style={textStyle}
                 >
-                  {section.name} 
+                  {section.name}
                 </h3>
                 <p
                   className={`flex items-center justify-start text-base ${styling.font}`}
                 >
-                 :{' '}
-                  {section.desc}
+                  : {section.desc}
                 </p>
               </div>
             </>

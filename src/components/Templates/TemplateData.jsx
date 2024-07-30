@@ -60,34 +60,33 @@ const TemplateData = {
         id: uniqid(),
       },
       {
-        name: "Project Blackbeard",
-        desc: "Exploration of the dark and enigmatic powers of Blackbeard.",
-        id: uniqid()
+        name: 'Project Blackbeard',
+        desc: 'Exploration of the dark and enigmatic powers of Blackbeard.',
+        id: uniqid(),
       },
     ],
     achievements: [
       {
-        name: "King of the Pirates",
-        desc: "Claimed the title of the greatest pirate on the seas, becoming the ultimate ruler of the Grand Line.",
-        id:uniqid()
+        name: 'King of the Pirates',
+        desc: 'Claimed the title of the greatest pirate on the seas, becoming the ultimate ruler of the Grand Line.',
+        id: uniqid(),
       },
       {
-        name: "Master of Haki",
+        name: 'Master of Haki',
         desc: "Achieved mastery over all forms of Haki, including Observation, Armament, and Conqueror's Haki.",
-        id:uniqid()
+        id: uniqid(),
       },
       {
-        name: "Savior of Dressrosa",
-        desc: "Saved the nation of Dressrosa from the tyrannical rule of Donquixote Doflamingo.",
-        id:uniqid()
+        name: 'Savior of Dressrosa',
+        desc: 'Saved the nation of Dressrosa from the tyrannical rule of Donquixote Doflamingo.',
+        id: uniqid(),
       },
-      
+
       {
-        name: "Conqueror of Enies Lobby",
-        desc: "Successfully stormed the judicial island of Enies Lobby and defeated the Marine forces stationed there.",
-        id:uniqid()
+        name: 'Conqueror of Enies Lobby',
+        desc: 'Successfully stormed the judicial island of Enies Lobby and defeated the Marine forces stationed there.',
+        id: uniqid(),
       },
-      
     ],
     certification: [
       {

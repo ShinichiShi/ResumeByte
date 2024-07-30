@@ -6,7 +6,11 @@ const Resume = ({ personalDetails, sections, style, styling }) => {
   return (
     <div className="resume-content flex items-center justify-center overflow-auto">
       <div className="w-[210mm] h-[297mm] bg-slate-50 shadow-lg overflow-hidden">
-        <Personal personalDetails={personalDetails} style={style} styling={styling}/>
+        <Personal
+          personalDetails={personalDetails}
+          style={style}
+          styling={styling}
+        />
         <DisplaySectionsResume
           sections={sections.educations || []}
           type="EDUCATION"

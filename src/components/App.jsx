@@ -456,14 +456,14 @@ function App() {
                     onClick={() => handleFont('font-sans')}
                   >
                     <div className="font-bold font-mono">Aa</div>
-                    <div className='font-mono'>Mono</div>
+                    <div className="font-mono">Mono</div>
                   </div>
                   <div
                     className="h-20 w-16 border-2 border-slate-800 rounded-lg flex items-center justify-around flex-col hover:bg-blue-300 cursor-pointer"
                     onClick={() => handleFont('font-serif')}
                   >
                     <div className="font-bold font-serif">Aa</div>
-                    <div className='font-serif'>Serif</div>
+                    <div className="font-serif">Serif</div>
                   </div>
                 </div>
               </div>
