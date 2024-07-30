@@ -3,10 +3,8 @@
 - [Link](https://resume-maker-41z.pages.dev/)
 - Issues: 
     - upgrade use of formatted date in forms
-    - new sections not being read ✅
-    - overflow of resume is hidden 
-    - pdf isnt reading overflow part
     - so the email isnt opening in a new tab...instead its routing to the localhost server
+    - seperate scrolling for edit and resume
 - Version Updates:
     - add further forms:
         - Personal Details (add linkedin, github) 
@@ -33,3 +31,4 @@
 
 - Planning Layout: 
     - projects, achievements, certifications and misc all are same components (only for projects there is a link)
+   

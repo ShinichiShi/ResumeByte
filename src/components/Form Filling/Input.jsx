@@ -1,7 +1,8 @@
+import React from "react";
 function Input({ placeholder, value, type, displayName, name, handleChange }) {
   return (
     <>
-      <div className="m-[1vh] bg-slate-100 min-h-[10vh] rounded-xl w-[96%] text-xl flex items-center justify-center">
+      <div className="w-full my-2 bg-slate-100 min-h-[10vh] rounded-xl text-xl flex items-center justify-center">
         {type !== 'textarea' && (
           <>
             <div className="flex gap-12">

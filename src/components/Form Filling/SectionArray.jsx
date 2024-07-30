@@ -9,7 +9,7 @@ function SectionArray({ sections, sectionType, handleSectionsChange, handleDelet
   };
 
   return (
-    <div>
+    <div className='w-full'>
       {sections.map((section) => (
         <DisplaySection
           key={section.id}

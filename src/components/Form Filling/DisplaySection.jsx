@@ -12,14 +12,14 @@ function DisplaySection({
   handleDeleteSection,
 }) {
   return (
-    <div className="p-[2vh] flex items-center flex-col justify-around w-[36vw] cursor-pointer">
+    <div className="p-4 w-full flex items-center flex-col justify-around cursor-pointer">
       <div
-        className="flex items-center justify-between w-full"
+        className="w-full flex items-center justify-between"
         onClick={onClick}
       >
         <div className="text-2xl">{section.name}</div>
         <div>
-          {isExpanded?<FaEyeSlash className='w-6 h-6'/>:<FaEye className='w-6 h-6'/>}
+          {isExpanded?<FaEye className='w-6 h-6'/>:<FaEyeSlash className='w-6 h-6'/>}
         </div>
       </div>
 
