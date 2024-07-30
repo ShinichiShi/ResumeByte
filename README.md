@@ -10,5 +10,5 @@
   - or add it into a db
   - add link option for projects section and linkedin github in personal deets if possible
   - seperate scrolling for edit and resume
-
+  - add to local storage atleast :(
    
