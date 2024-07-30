@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import TemplateData from './TemplateData';
-import TemplateBar from './TemplateBar';
+import TemplateData from './Templates/TemplateData';
+import TemplateBar from './Templates/TemplateBar';
 import Resume from './Resume Display/Resume';
 import Input from './Form Filling/Input';
 import Section from './Form Filling/Section';
@@ -12,21 +12,19 @@ import Buttons from './Buttons';
 import generatePDF from './PdfGenerator';
 import { FaFileAlt } from 'react-icons/fa';
 import { CiEdit } from 'react-icons/ci';
-// import TemplateStyle from './TemplateStyle'
+import TemplateStyle from './Templates/TemplateStyle';
 const { Save, Add } = Buttons;
 
 function App() {
   const [personalDetails, setPersonalDetails] = useState(
     TemplateData.personalDetails
   );
-  // const [styling, setStyling] = useState(
-  //   JSON.parse(localStorage.getItem('styling')) || TemplateStyle
-  // )
   const [sections, setSections] = useState(TemplateData.sections);
   const [activeSection, setActiveSection] = useState('');
   const [addSection, setAddSection] = useState(false);
   const [config, setConfig] = useState('content');
   const [style, setStyle] = useState('formal');
+  const [styling, setStyling] = useState(TemplateStyle());
   const [formData, setFormData] = useState({
     name: '',
     degree: '',
@@ -37,10 +35,6 @@ function App() {
     desc: '',
     location: '',
   });
-  // const { header,text} = styling.colors;
-  // const {font} = styling.font
-
-  // localStorage.setItem('styling',JSON.stringify(styling))
 
   const handleClick = (section) => {
     setActiveSection((prevSection) => (prevSection === section ? '' : section));
@@ -126,7 +120,21 @@ function App() {
       [type]: prevSections[type].filter((section) => section.id !== id),
     }));
   };
-
+  const handleColorChange = (e, type) => {
+    const newColor = e.target.value;
+    const newStyling = JSON.parse(JSON.stringify(styling));
+    newStyling.colors[type] = newColor;
+    setStyling(newStyling);
+  };
+  const handleFont = (type) => {
+    const newFont = JSON.parse(JSON.stringify(styling));
+    newFont.font = type;
+    setStyling(newFont);
+  };
+  const handleResetStyles = () => {
+    setStyling(TemplateStyle());
+    setFont('font-serif');
+  };
   return (
     <>
       <div className="p-10 flex items-center gap-[4vh] justify-around bg-slate-800">
@@ -394,55 +402,75 @@ function App() {
                 <p className="font-bold text-3xl mb-3">Style</p>
                 <div className="w-full flex gap-6 items-center justify-around">
                   <button
-                    className="h-20 w-16 border-2 border-slate-800 rounded-lg flex items-center justify-around flex-col hover:bg-blue-300"
+                    className="h-12 w-1/2 border-2 border-slate-800 rounded-lg flex items-center justify-around flex-col hover:bg-blue-300"
                     onClick={() => {
                       setStyle('informal');
                     }}
                   >
-                    <div className="font-bold text-sm">Informal</div>
-                    <div>I</div>
+                    <div className="font-bold text-xl">Informal</div>
                   </button>
                   <button
-                    className="h-20 w-16 border-2 border-slate-800 rounded-lg flex items-center justify-around flex-col hover:bg-blue-300"
+                    className="h-12 w-1/2 border-2 border-slate-800 rounded-lg flex items-center justify-around flex-col hover:bg-blue-300"
                     onClick={() => {
                       setStyle('formal');
                     }}
                   >
-                    <div className="font-bold">Formal</div>
-                    <div>II</div>
+                    <div className="font-bold text-xl">Formal</div>
                   </button>
                 </div>
               </div>
               <div className="p-3 h-44 w-full  bg-blue-200 rounded-xl">
                 {' '}
                 <p className="font-bold text-3xl">Colors</p>
-                <div>
-                  <div className="p-4 text-xl">Header Color:</div>
-                  <div></div>
+                <div className="flex items-center justify-between">
+                  <div className="p-4 text-xl font-bold">Header Color:</div>
+                  <input
+                    type="color"
+                    name="color-header"
+                    className="w-15 rounded-lg border-0 p-1 cursor-pointer"
+                    defaultValue={styling.colors.header}
+                    onChange={(e) => {
+                      handleColorChange(e, 'header');
+                    }}
+                  />
                 </div>
-                <div>
-                  <div className="p-4 text-xl">Text Color:</div>
-                  <div></div>
+                <div className="flex items-center justify-between">
+                  <div className="p-4 text-xl font-bold">Text Color:</div>
+                  <input
+                    type="color"
+                    name="color-text"
+                    className="w-15 rounded-lg border-0 p-1 cursor-pointer"
+                    defaultValue={styling.colors.text}
+                    onChange={(e) => {
+                      handleColorChange(e, 'text');
+                    }}
+                  />
                 </div>
               </div>
               <div className="p-3 h-44 w-full bg-blue-200 rounded-xl">
                 {' '}
                 <p className="font-bold text-3xl mb-3">Fonts</p>
                 <div className="w-full flex gap-6 items-center justify-around">
-                  <div className="h-20 w-16 border-2 border-slate-800 rounded-lg flex items-center justify-around flex-col hover:bg-blue-300 cursor-pointer">
-                    <div className="font-bold">Aa</div>
-                    <div>Sans</div>
+                  <div
+                    className="h-20 w-16 border-2 border-slate-800 rounded-lg flex items-center justify-around flex-col hover:bg-blue-300 cursor-pointer"
+                    onClick={() => handleFont('font-sans')}
+                  >
+                    <div className="font-bold font-mono">Aa</div>
+                    <div className='font-mono'>Mono</div>
                   </div>
-                  <div className="h-20 w-16 border-2 border-slate-800 rounded-lg flex items-center justify-around flex-col hover:bg-blue-300 cursor-pointer">
-                    <div className="font-bold">Aa</div>
-                    <div>Serif</div>
+                  <div
+                    className="h-20 w-16 border-2 border-slate-800 rounded-lg flex items-center justify-around flex-col hover:bg-blue-300 cursor-pointer"
+                    onClick={() => handleFont('font-serif')}
+                  >
+                    <div className="font-bold font-serif">Aa</div>
+                    <div className='font-serif'>Serif</div>
                   </div>
                 </div>
               </div>
               <div className="w-full flex items-center justify-center">
                 <button
-                  className={`h-12 w-2/5 text-red-800 font-semibold border-2 border-red-300 rounded-[var(--radius)] hover:bg-red-300 text-xl flex items-center justify-center`}
-                  onClick={console.log('as')}
+                  className="h-12 w-2/5 text-red-800 font-semibold border-2 border-red-300 rounded-[var(--radius)] hover:bg-red-300 text-xl flex items-center justify-center"
+                  onClick={handleResetStyles}
                 >
                   Reset to Default
                 </button>
@@ -455,6 +483,7 @@ function App() {
             personalDetails={personalDetails}
             sections={sections}
             style={style}
+            styling={styling}
           />
         </div>
       </div>

@@ -51,12 +51,10 @@ body{
   --radius: 2vh;
 }
 
-/* Custom styles for informal */
 .informal-section {
   @apply mb-1 p-1 bg-white rounded-lg shadow flex items-center justify-between flex-row;
 }
 
-/* Custom styles for formal */
 .formal-section {
   @apply p-1 rounded-lg flex items-center justify-between flex-row;
 }
