@@ -29,11 +29,7 @@ function SectionArray({
         />
       ))
     }
-    {sections.length===0 && (
-      <div className='flex items-center justify-center gap-1 text-2xl'>
-        Kindly Add <p className='capitalize'>{sectionType}...</p>
-      </div>
-    )}
+   
     </div>
   );
 }

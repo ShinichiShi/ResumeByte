@@ -143,10 +143,10 @@ function App() {
   };
   return (
     <>
-      <div className="p-10 flex items-center gap-[4vh] justify-around bg-slate-800">
-        <div className="h-40 w-24 bg-slate-200 p-1 flex self-start items-center flex-col justify-around rounded-xl">
+      <div className="h-full p-10 flex flex-col md:flex-row items-center justify-center gap-[4vh] bg-slate-800 ">
+        <div className="md:h-40 md:w-24 h-20 w-1/2 bg-slate-200 p-1 flex md:self-start items-center md:flex-col justify-around rounded-xl">
           <div
-            className="w-20 cursor-pointer rounded-xl flex items-center flex-col justify-center hover:bg-slate-300"
+            className={`w-20 cursor-pointer rounded-xl flex items-center flex-col justify-center ${config==='content'?'bg-slate-300':'hover:bg-slate-300'}`}
             onClick={() => {
               setConfig('content');
             }}
@@ -155,7 +155,7 @@ function App() {
             <p className="font-bold">Content</p>
           </div>
           <div
-            className="w-20 cursor-pointer p-1 rounded-xl flex items-center flex-col justify-center hover:bg-slate-300"
+            className={`w-20 cursor-pointer p-1 rounded-xl flex items-center flex-col justify-center ${config==='config'?'bg-slate-300':'hover:bg-slate-300'}`}
             onClick={() => {
               setConfig('config');
             }}
@@ -166,7 +166,7 @@ function App() {
         </div>
         {config === 'content' ? (
           <>
-            <div className="flex items-center justify-center flex-col min-w-[30vw] gap-[2vh] self-start">
+            <div className="flex items-center justify-center flex-col min-w-[30vw] gap-[2vh] self-center md:self-start">
               <TemplateBar handleClear={handleClear} handleLoad={handleLoad} />
               <Section
                 name="Personal Details"
@@ -418,8 +418,8 @@ function App() {
           </>
         ) : (
           <>
-            <div className="p-4 flex items-start justify-center flex-col min-w-[30vw] gap-5 self-start bg-slate-200 rounded-xl mt-7 ">
-              <div className="p-3 h-44 w-full bg-blue-200 rounded-xl">
+            <div className="p-4 flex items-start justify-center flex-col min-w-[60vw] md:min-w-[30vw] gap-5 md:self-start self-center bg-slate-200 rounded-xl mt-7 ">
+              <div className="p-3 h-44 w-full  bg-blue-200 rounded-xl">
                 {' '}
                 <p className="font-bold text-3xl mb-3">Style</p>
                 <div className="w-full flex gap-6 items-center justify-around">
@@ -494,7 +494,7 @@ function App() {
               </div>
               <div className="w-full flex items-center justify-center">
                 <button
-                  className="h-12 w-2/5 text-red-800 font-semibold border-2 border-red-300 rounded-[var(--radius)] hover:bg-red-300 text-xl flex items-center justify-center"
+                  className="h-12 w-2/5 text-red-800 font-semibold border-2 border-red-300 rounded-[var(--radius)] hover:bg-red-300 md:text-xl text-lg flex items-center justify-center"
                   onClick={handleResetStyles}
                 >
                   Reset to Default
