@@ -5,7 +5,7 @@ import DisplaySectionsResume from './DisplaySectionsResume';
 const Resume = ({ personalDetails, sections, style, styling }) => {
   return (
     <div className="resume-content flex items-center justify-center overflow-auto">
-      <div className="md:w-[210mm] md:h-[297mm] bg-slate-50 shadow-lg overflow-hidden">
+      <div className="md:w-[210mm] md:h-[297mm] w-[70%] bg-slate-50 shadow-lg overflow-hidden">
         <Personal
           personalDetails={personalDetails}
           style={style}
