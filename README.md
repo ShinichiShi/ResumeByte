@@ -1,5 +1,5 @@
 # ResumeByte
- [Link](https://resume-maker-41z.pages.dev/)
+ [Link](https://resumebyte.pages.dev/)
 
 ## Introduction
 
