@@ -4,25 +4,27 @@ const TemplateData = {
   personalDetails: {
     name: 'Shinichi Shi',
     email: 'zoro@kaguya-sama.com',
+    github:'ShinichiShi',
+    linkedin:'supreeth-c-shinichi',
     phoneNumber: '1234567890',
     address: 'Impel Down, Block E',
   },
   sections: {
     educations: [
       {
-        name: 'Konoha Academy',
-        degree: 'Ninja Training',
-        percentage: '100%',
-        startYear: '2023',
-        endYear: '2027',
-        id: uniqid(),
-      },
-      {
         degree: 'Shinigami Studies',
         name: 'Soul Society Academy',
         percentage: '95%',
+        startYear: '2023',
+        endYear: 'present',
+        id: uniqid(),
+      },
+      {
+        name: 'Konoha Academy',
+        degree: 'Ninja Training',
+        percentage: '100%',
         startYear: '2020',
-        endYear: '2022',
+        endYear: '2023',
         id: uniqid(),
       },
     ],
@@ -68,23 +70,17 @@ const TemplateData = {
     achievements: [
       {
         name: 'King of the Pirates',
-        desc: 'Claimed the title of the greatest pirate on the seas, becoming the ultimate ruler of the Grand Line.',
+        desc: 'Claimed the title by becoming the ultimate ruler of the Grand Line.',
         id: uniqid(),
       },
       {
         name: 'Master of Haki',
-        desc: "Achieved mastery over all forms of Haki, including Observation, Armament, and Conqueror's Haki.",
+        desc: "Achieved mastery over Observation, Armament, and Conqueror's Haki.",
         id: uniqid(),
       },
-      {
-        name: 'Savior of Dressrosa',
-        desc: 'Saved the nation of Dressrosa from the tyrannical rule of Donquixote Doflamingo.',
-        id: uniqid(),
-      },
-
       {
         name: 'Conqueror of Enies Lobby',
-        desc: 'Successfully stormed the judicial island of Enies Lobby and defeated the Marine forces stationed there.',
+        desc: 'Successfully stormed the judicial island of Enies Lobby.',
         id: uniqid(),
       },
     ],

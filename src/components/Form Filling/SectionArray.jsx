@@ -15,7 +15,9 @@ function SectionArray({
 
   return (
     <div className="w-full">
-      {sections.map((section) => (
+
+      { 
+      sections.map((section) => (
         <DisplaySection
           key={section.id}
           section={section}
@@ -25,7 +27,13 @@ function SectionArray({
           sectionType={sectionType}
           handleDeleteSection={handleDeleteSection}
         />
-      ))}
+      ))
+    }
+    {sections.length===0 && (
+      <div className='flex items-center justify-center gap-1 text-2xl'>
+        Kindly Add <p className='capitalize'>{sectionType}...</p>
+      </div>
+    )}
     </div>
   );
 }

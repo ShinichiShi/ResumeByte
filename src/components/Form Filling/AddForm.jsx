@@ -86,14 +86,12 @@ export default function AddForm({
       {operation !== 'add' && (
         <Delete onClick={() => handleDeleteSection(sectionType, section.id)} />
       )}
-      {operation === 'add' && (
         <>
           <div className="w-full flex items-center justify-between">
             <Cancel onClick={handleCancel} />
             <Save onClick={handleSubmit} />
           </div>
         </>
-      )}
     </>
   );
 }

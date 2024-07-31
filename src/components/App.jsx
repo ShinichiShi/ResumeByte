@@ -52,13 +52,19 @@ function App() {
   const handleClear = () => {
     setPersonalDetails({
       name: '',
-      email: '',
-      phoneNumber: '',
-      address: '',
+    email: '',
+    github:'',
+    linkedin:'',
+    phoneNumber: '',
+    address: '',
     });
     setSections({
       educations: [],
       experience: [],
+      projects: [],
+      achievements: [],
+      certification: [],
+      misc: [],
     });
     setAddSection(false);
   };
@@ -176,19 +182,35 @@ function App() {
                   handleChange={handlePersonalDetailsChange}
                 />
                 <Input
-                  placeholder="E-mail"
-                  type="email"
-                  displayName="Email"
-                  value={personalDetails.email}
-                  name="email"
-                  handleChange={handlePersonalDetailsChange}
-                />
-                <Input
                   placeholder="Phone Number"
                   type="number"
                   displayName="Phone Number"
                   value={personalDetails.phoneNumber}
                   name="phoneNumber"
+                  handleChange={handlePersonalDetailsChange}
+                />
+                <Input
+                  placeholder="G-mail"
+                  type="email"
+                  displayName="Gmail"
+                  value={personalDetails.email}
+                  name="email"
+                  handleChange={handlePersonalDetailsChange}
+                />
+                <Input
+                  placeholder="Username"
+                  type="text"
+                  displayName="Github"
+                  value={personalDetails.github}
+                  name="github"
+                  handleChange={handlePersonalDetailsChange}
+                />
+                <Input
+                  placeholder="Username"
+                  type="text"
+                  displayName="Linkedin"
+                  value={personalDetails.linkedin}
+                  name="linkedin"
                   handleChange={handlePersonalDetailsChange}
                 />
                 <Input
@@ -401,8 +423,10 @@ function App() {
                 {' '}
                 <p className="font-bold text-3xl mb-3">Style</p>
                 <div className="w-full flex gap-6 items-center justify-around">
+                  
                   <button
-                    className="h-12 w-1/2 border-2 border-slate-800 rounded-lg flex items-center justify-around flex-col hover:bg-blue-300"
+                    className={`h-12 w-1/2 border-2 border-slate-800 rounded-lg flex items-center justify-around flex-col  
+                      ${style==='informal'?'bg-blue-400':'hover:bg-blue-300'}`}
                     onClick={() => {
                       setStyle('informal');
                     }}
@@ -410,7 +434,8 @@ function App() {
                     <div className="font-bold text-xl">Informal</div>
                   </button>
                   <button
-                    className="h-12 w-1/2 border-2 border-slate-800 rounded-lg flex items-center justify-around flex-col hover:bg-blue-300"
+                    className={`h-12 w-1/2 border-2 border-slate-800 rounded-lg flex items-center justify-around flex-col 
+                      ${style==='formal'?'bg-blue-400':'hover:bg-blue-300'}`}
                     onClick={() => {
                       setStyle('formal');
                     }}
@@ -452,14 +477,14 @@ function App() {
                 <p className="font-bold text-3xl mb-3">Fonts</p>
                 <div className="w-full flex gap-6 items-center justify-around">
                   <div
-                    className="h-20 w-16 border-2 border-slate-800 rounded-lg flex items-center justify-around flex-col hover:bg-blue-300 cursor-pointer"
-                    onClick={() => handleFont('font-sans')}
+                    className={`h-20 w-16 border-2 border-slate-800 rounded-lg flex items-center justify-around flex-col cursor-pointer ${styling.font==='font-mono'?'bg-blue-400':'hover:bg-blue-300'}`}
+                    onClick={() => handleFont('font-mono')}
                   >
                     <div className="font-bold font-mono">Aa</div>
                     <div className="font-mono">Mono</div>
                   </div>
                   <div
-                    className="h-20 w-16 border-2 border-slate-800 rounded-lg flex items-center justify-around flex-col hover:bg-blue-300 cursor-pointer"
+                    className={`h-20 w-16 border-2 border-slate-800 rounded-lg flex items-center justify-around flex-col  cursor-pointer ${styling.font==='font-serif'?'bg-blue-400':'hover:bg-blue-300'}`}
                     onClick={() => handleFont('font-serif')}
                   >
                     <div className="font-bold font-serif">Aa</div>
@@ -492,52 +517,3 @@ function App() {
 }
 
 export default App;
-
-// import PersonalSection from './components/PersonalSection';
-// const [isDisplayPersonal, setIsDisplayPersonal] = useState(false);
-// const [isDisplayEdu, setIsDisplayEdu] = useState(false);
-// const handleClickPersonal = () => {
-//   isDisplayEdu
-//     ? (setIsDisplayPersonal(!isDisplayPersonal),
-//     setIsDisplayEdu(!isDisplayEdu))
-//     : setIsDisplayPersonal(!isDisplayPersonal);
-// };
-// const handleClickEdu = () => {
-//   isDisplayPersonal
-//     ? (setIsDisplayEdu(!isDisplayEdu),
-//       setIsDisplayPersonal(!isDisplayPersonal))
-//     : setIsDisplayEdu(!isDisplayEdu);
-// };
-// const handleClickPersonal = () => {
-// if (isDisplayEdu) {
-// setIsDisplayEdu(false);
-// }
-// setIsDisplayPersonal(!isDisplayPersonal);
-// };
-
-// const handleClickEdu = () => {
-// if (isDisplayPersonal) {
-// setIsDisplayPersonal(false);
-// }
-// setIsDisplayEdu(!isDisplayEdu);
-// };
-/* {isDisplayPersonal ? (
-            <Details name={'Personal Details'}>
-              <Input name="Full name" handleClick={handleClickPersonal} />
-              <Input name="E-mail" handleClick={handleClickPersonal} />
-              <Input name="Phone Number" handleClick={handleClickPersonal} />
-              <Input name="Address" handleClick={handleClickPersonal} />
-            </Details>
-          ) : (
-            <PersonalSection
-              name={'Personal Details'}
-              handleClick={handleClickPersonal}
-            />
-          )}
-          {isDisplayEdu ? (
-            <Details name={'Education'}>
-              <Input name="College Name" handleClick={handleClickEdu} />
-            </Details>
-          ) : (
-            <PersonalSection name={'Education'} handleClick={handleClickEdu} />
-          )} */
