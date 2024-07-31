@@ -59,6 +59,7 @@ To get started with the Resume Maker on your device, follow these steps:
 This project is licensed under the [MIT License](LICENSE) – see the [LICENSE](LICENSE) file for details.
 
 ## Next Version Updates:
+  - improvise responsiveness while printing and displaying
   - store it into local storage
   - add it into a db
   - seperate scrolling for edit and resume

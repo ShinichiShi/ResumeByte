@@ -3,7 +3,7 @@ function TemplateBar({ handleLoad, handleClear }) {
     <>
       <div className="flex m-[5vh] h-[8vh] min-w-full bg-slate-300 rounded-[var(--radius)] items-center justify-center gap-[1vh]">
         <button
-          className="h-[6vh] w-2/5 text-red-800 font-semibold border-2 border-red-300 rounded-[var(--radius)] hover:bg-red-300 text-xs md:text-sm lg:text-xl"
+          className="h-[6vh] w-2/5 text-red-800 font-semibold border-2 border-red-300 rounded-[var(--radius)] hover:bg-red-300 text-xs md:text-sm "
           onClick={handleClear}
         >
           Clear Resume

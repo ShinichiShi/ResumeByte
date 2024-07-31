@@ -143,8 +143,8 @@ function App() {
   };
   return (
     <>
-      <div className="h-full p-10 flex flex-col md:flex-row items-center justify-center gap-[4vh] bg-slate-800 ">
-        <div className="md:h-40 md:w-24 h-20 w-1/2 bg-slate-200 p-1 flex md:self-start items-center md:flex-col justify-around rounded-xl">
+      <div className="h-full w-full p-10 flex flex-col md:flex-row items-center justify-center gap-4 bg-slate-800 ">
+        <div className="md:h-40 md:w-24 h-20 w-1/2 bg-slate-200 p-1 flex md:self-start text-xs md:text-sm items-center md:flex-col justify-around rounded-xl">
           <div
             className={`w-20 cursor-pointer rounded-xl flex items-center flex-col justify-center ${config==='content'?'bg-slate-300':'hover:bg-slate-300'}`}
             onClick={() => {
