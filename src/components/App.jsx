@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TemplateData from './Templates/TemplateData';
 import TemplateBar from './Templates/TemplateBar';
 import Resume from './Resume Display/Resume';
@@ -31,10 +31,26 @@ function App() {
     percentage: '',
     startYear: '',
     endYear: '',
-    name: '',
     desc: '',
     location: '',
   });
+  useEffect(() => {
+    let personal = localStorage.getItem('personal');
+    let sections = localStorage.getItem('sections')
+    if (personal) {
+      let data = JSON.parse(localStorage.getItem('personal'));
+      setPersonalDetails(data);
+    }
+    if (sections) {
+      let data = JSON.parse(localStorage.getItem('sections'));
+      setSections(data);
+    }
+  }, [])
+  
+  const saveToLocalStorage = () => {
+    localStorage.setItem('personal', JSON.stringify(personalDetails));
+    localStorage.setItem('sections', JSON.stringify(sections));
+  };
 
   const handleClick = (section) => {
     setActiveSection((prevSection) => (prevSection === section ? '' : section));
@@ -47,6 +63,7 @@ function App() {
       ...prevDetails,
       [name]: value,
     }));
+    saveToLocalStorage();
   };
 
   const handleClear = () => {
@@ -67,12 +84,14 @@ function App() {
       misc: [],
     });
     setAddSection(false);
+    saveToLocalStorage();
   };
 
   const handleLoad = () => {
     setPersonalDetails(TemplateData.personalDetails);
     setSections(TemplateData.sections);
     setAddSection(false);
+    saveToLocalStorage();
   };
 
   const handleSectionsChange = (e, sectionType, id) => {
@@ -93,6 +112,7 @@ function App() {
         section.id === id ? { ...section, [name]: value } : section
       ),
     }));
+    saveToLocalStorage();
   };
 
   const handleChangeFormData = (e) => {
@@ -111,6 +131,7 @@ function App() {
       endDate: '',
     });
     setAddSection(false);
+    saveToLocalStorage();
   };
 
   const handleAddNewSection = (newSection, type) => {
@@ -118,6 +139,7 @@ function App() {
       ...prevSections,
       [type]: [...prevSections[type], { ...newSection, id: uniqid() }],
     }));
+    saveToLocalStorage();
   };
 
   const handleDeleteSection = (type, id) => {
