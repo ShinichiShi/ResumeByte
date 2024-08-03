@@ -64,4 +64,9 @@ This project is licensed under the [MIT License](LICENSE) – see the [LICENSE](
   - add it into a db
   - seperate scrolling for edit and resume
   - add Links to Projects
-  - Improvise the printing for 2 pages (as well as the icons in printed pdf)
+  - Improvise the printing for 2 pages (as well as the icons in printed pdf)\
+
+## updates
+  - connect mongo db
+  - use passport js for auth
+  - routes

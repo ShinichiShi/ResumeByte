@@ -31,7 +31,6 @@ function App() {
     percentage: '',
     startYear: '',
     endYear: '',
-    name: '',
     desc: '',
     location: '',
   });
