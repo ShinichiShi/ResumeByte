@@ -17,40 +17,12 @@ Welcome to ResumeByte – a customizable web application resume builder that hel
 - **React**: A JavaScript library for building user interfaces.
 - **Vite**: A fast build tool and development server.
 - **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+---
 
-## Getting Started
+## Setup / Contribute
+The [contributing.md](Contributing.md) has instructions to setup this projects locally and contribute to this project.
 
-To get started with the Resume Maker on your device, follow these steps:
-
-1. **Clone the Repository**:
-```bash
-  git clone https://github.com/yourusername/resume-maker.git
-```
-2. **Install Dependencies**:
-```bash
-  cd resume-maker
-  npm install
-```
-3. **Run the Application**:
-```bash
-  npm run dev
-```
-## Contributing
-1. Fork the Repository
-2. Create a New Branch:
-```bash
-  git checkout -b feature
-```
-3. Make Your Changes
-4. Commit Your Changes:
-```bash
-  git commit -am 'Add new feature'
-```
-5. Push to the Branch:
-```bash
-  git push origin feature
-```
-6. Create a New Pull Request
+---
 
 ## License
 This project is licensed under the [MIT License](LICENSE) – see the [LICENSE](LICENSE) file for details.
