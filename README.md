@@ -1,7 +1,4 @@
 # ResumeByte
- [Link](https://resumebyte.pages.dev/)
-
-## Introduction
 
 Welcome to ResumeByte – a customizable web application resume builder that helps you create, manage, and download a professional resume. 
 
